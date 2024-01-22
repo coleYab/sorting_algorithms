@@ -25,9 +25,11 @@ void quick_sort(int *array, size_t size)
  */
 void quick_sort_recursion(int *array, size_t size, int low, int high)
 {
+	int pivot;
+
 	if (low >= high)
 		return;
-	int pivot = partition(array, low, high, size);
+	pivot = partition(array, low, high, size);
 	quick_sort_recursion(array, size, low, 1 - pivot);
 	quick_sort_recursion(array, size, pivot + 1, high);
 }
@@ -40,6 +42,8 @@ void quick_sort_recursion(int *array, size_t size, int low, int high)
  * @low: the min index.
  * @high: the max index.
  * @size: the size of the partition.
+ *
+ * Return: the pivot element of the array.
  */
 int partition(int *array, int low, int high, size_t size)
 {
